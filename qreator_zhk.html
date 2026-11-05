@@ -66,18 +66,7 @@
 }
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"Зачем нужен инженерный проект для квартиры в ЖК «[[*ЖК]]»?","acceptedAnswer":{"@type":"Answer","text":"Проект решает четыре задачи сразу: правильные уклоны канализации — без запахов и засоров; расчёт электрических нагрузок — без перегрева кабеля и выбитых автоматов; реалистичная смета на материалы уже в начале ремонта — экономия до 20–30%; согласование с эксплуатирующей организацией ЖК «[[*ЖК]]» — без риска предписаний и штрафов"}},
-    {"@type":"Question","name":"Что если у меня нет дизайн-проекта?","acceptedAnswer":{"@type":"Answer","text":"Достаточно плана БТИ и схематичной расстановки сантехники, розеток и светильников. Наш инженер поможет составить техзадание вместе с вами — по переписке, созвону или даже по фото зарисовки от руки."}},
-    {"@type":"Question","name":"Сколько стоит инженерный проект квартиры в ЖК «[[*ЖК]]»?","acceptedAnswer":{"@type":"Answer","text":"Один раздел (например, только электрика) — от 14 000 ₽ . Комплексный проект из 2–3 разделов для квартиры 40–80 м² — обычно 35 000–60 000 ₽ . Точную цену считает калькулятор на этой странице, а после просмотра плана мы фиксируем её в договоре — она не изменится."}},
-    {"@type":"Question","name":"Что входит в стоимость — есть ли доплаты?","acceptedAnswer":{"@type":"Answer","text":"В стоимость включено всё: полный комплект чертежей, спецификация оборудования и материалов, помощь с техзаданием, консультация по согласованию с УК, нормоконтроль и одна итерация правок. Доплат за эти позиции не будет — цена фиксируется в договоре."}}
-  ]
-}
-</script>
+<!-- FAQ structured data omitted: questions and answers are authored in the visible page content, not duplicated across every ЖК template. -->
 <style>
   :root {
     --blue-950: #082247;
@@ -479,7 +468,38 @@
   .seo-text-block { max-width: 900px; margin: 36px auto 0; font-size: 15px; color: var(--text-muted); }
   .seo-text-block h3 { color: var(--blue-900); font-size: 22px; font-weight: 800; margin: 28px 0 12px; }
   .seo-text-block p { margin-bottom: 12px; }
+
   .seo-text-block strong { color: var(--text); }
+
+  /* ===== ЖК ENGINEERING CONTENT: reusable styles for individual complex pages ===== */
+  .zhk-engineering { color: var(--text-muted); }
+  .zhk-engineering h3 { color: var(--blue-900); font-size: 24px; line-height: 1.25; margin: 38px 0 14px; }
+  .zhk-engineering h4 { color: var(--blue-800); font-size: 18px; line-height: 1.35; margin: 24px 0 9px; }
+  .zhk-engineering p { margin: 0 0 14px; }
+  .zhk-engineering ul, .zhk-engineering ol { margin: 10px 0 18px 22px; }
+  .zhk-engineering li { margin: 6px 0; padding-left: 3px; }
+  .zhk-engineering figure { margin: 22px 0 28px; }
+  .zhk-engineering figure img { width: 100%; max-height: 560px; object-fit: cover; border-radius: 14px; border: 1px solid var(--border); }
+  .zhk-engineering figcaption { margin-top: 8px; color: var(--text-muted); font-size: 13px; line-height: 1.5; }
+  .zhk-engineering .zhk-media-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin: 20px 0 28px; }
+  .zhk-engineering .zhk-media-grid figure { margin: 0; min-width: 0; }
+  .zhk-engineering .zhk-fact-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin: 20px 0 26px; }
+  .zhk-engineering .zhk-fact { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; }
+  .zhk-engineering .zhk-fact b { display: block; color: var(--blue-900); font-size: 17px; margin-bottom: 5px; }
+  .zhk-engineering .zhk-note { border-left: 4px solid var(--blue-500); background: var(--blue-50); padding: 16px 18px; margin: 18px 0 22px; border-radius: 0 12px 12px 0; }
+  .zhk-engineering .zhk-warning { border-left-color: var(--orange); background: #fff7ed; }
+  .zhk-engineering .zhk-table-wrap { overflow-x: auto; margin: 18px 0 24px; }
+  .zhk-engineering table { border-collapse: collapse; width: 100%; min-width: 540px; font-size: 14px; }
+  .zhk-engineering th, .zhk-engineering td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  .zhk-engineering th { color: var(--blue-900); background: var(--blue-50); font-weight: 800; }
+  .zhk-engineering .zhk-checklist { list-style: none; margin-left: 0; }
+  .zhk-engineering .zhk-checklist li { position: relative; padding-left: 26px; }
+  .zhk-engineering .zhk-checklist li:before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--blue-600); font-weight: 900; }
+  @media(max-width:640px) {
+    .zhk-engineering h3 { font-size: 21px; }
+    .zhk-engineering .zhk-media-grid, .zhk-engineering .zhk-fact-grid { grid-template-columns: 1fr; }
+    .zhk-engineering figure img { max-height: 380px; }
+  }
 
   /* ===== STATS ===== */
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -925,19 +945,16 @@
         Инженерные проекты квартиры<br>в ЖК <span class="accent">«[[*ЖК]]»</span>
       </h1>
       <p class="hero-subtitle reveal stagger-2">
-        [[*adress]] · Застройщик — [[*zastroy]]. Знаем устройство дома и требования эксплуатирующей
-        организации — и проектируем для квартир этого комплекса все пять инженерных разделов:
-        водоснабжение и канализацию, электрику и освещение, отопление, вентиляцию
-        и кондиционирование, слаботочные сети.
+        [[*adress]] · Застройщик — [[*zastroy]]. Изучаем доступные технические условия и исходные данные дома. Состав проекта определяем по задаче собственника: водоснабжение и канализация, отопление, вентиляция и кондиционирование, электрика, освещение и слаботочные сети.
       </p>
       <div class="hero-features reveal stagger-3">
         <div class="hero-feature">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Все 5 инженерных разделов
+          Нужные разделы — по задаче
         </div>
         <div class="hero-feature">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Проект под требования УК
+          С учётом ТУ и требований УК
         </div>
         <div class="hero-feature">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1030,8 +1047,8 @@
       </div>
       <div class="service-card reveal stagger-1" style="display:flex;flex-direction:column;">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-        <h3>Гарантия согласования в УК</h3>
-        <p class="service-meta">Проект выполнен по требованиям СП, ГОСТ и с учетом пожеланий крупных УК московских ЖК, включая эксплуатирующую организацию ЖК «[[*ЖК]]»</p>
+        <h3>Подготовка проекта к согласованию</h3>
+        <p class="service-meta">Учитываем опубликованные технические условия конкретного комплекса, исходные данные квартиры и действующие нормы. Состав документации и порядок подачи уточняем по требованиям эксплуатирующей организации. Решение о согласовании принимает УК.</p>
         <div class="service-price">бесплатно</div>
         <a href="#faq" class="btn btn-outline" style="margin-top:auto;">Как проходит согласование</a>
       </div>
@@ -1198,7 +1215,7 @@
     <div class="section-header reveal">
       <span class="section-label">Состав проекта</span>
       <h2 class="section-title">Из чего состоит инженерный проект квартиры</h2>
-      <p class="section-subtitle">Каждый раздел — комплект чертежей по СП, ГОСТ и ПУЭ, который принимает УК и по которому монтажники работают без вопросов.</p>
+      <p class="section-subtitle">Каждый раздел — комплект расчётов, схем и рабочих чертежей с привязкой к исходным данным квартиры, техническим условиям дома и применимым нормам.</p>
     </div>
     <div class="seo-grid">
       <div class="seo-card reveal ">
@@ -1372,71 +1389,51 @@
 <section class="section" id="faq" style="background: var(--bg-alt);">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">FAQ</span>
-      <h2 class="section-title">Частые вопросы о проектах в ЖК «[[*ЖК]]»</h2>
-      <p class="section-subtitle">Не нашли ответ? Напишите нам — ответим в течение рабочего дня.</p>
+      <span class="section-label">Вопросы перед проектированием</span>
+      <h2 class="section-title">Что важно знать перед заказом проекта в ЖК «[[*ЖК]]»</h2>
+      <p class="section-subtitle">Отвечаем на вопросы, которые влияют на состав документации, сроки и возможность согласования.</p>
     </div>
     <div class="faq-wrapper">
       <div class="accordion-item active reveal">
-        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Зачем нужен инженерный проект для квартиры в ЖК «[[*ЖК]]»?</span>
+        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Можно заказать только один инженерный раздел?</span>
           <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="accordion-content"><div class="accordion-body">
-          <p>Проект решает четыре задачи сразу:</p>
-          <ul>
-            <li>правильные уклоны канализации — без запахов и засоров</li>
-            <li>расчёт электрических нагрузок — без перегрева кабеля и выбитых автоматов</li>
-            <li>реалистичная смета на материалы уже в начале ремонта — экономия до 20–30%</li>
-            <li>согласование с эксплуатирующей организацией ЖК «[[*ЖК]]» — без риска предписаний и штрафов</li>
-          </ul>
+          <p>Да. Можно заказать отдельный проект водоснабжения и канализации, электрики, отопления, вентиляции и кондиционирования либо слаботочных сетей. При проектировании одного раздела мы всё равно проверяем его взаимное влияние на смежные системы: высоты, трассы, проходы, узлы подключения и доступ для обслуживания.</p>
         </div></div>
       </div>
       <div class="accordion-item reveal">
-        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Нужно ли согласовывать проект с УК ЖК «[[*ЖК]]»?</span>
+        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Нужен ли дизайн-проект для начала работы?</span>
           <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="accordion-content"><div class="accordion-body">
-          <p>Да, если перепланировка затрагивает стояки, мокрые зоны или вводные коммуникации. Мы знаем требования эксплуатирующей организации ЖК «[[*ЖК]]» и выполняем проект сразу под них — 97% наших проектов согласуются с первого раза. Если появятся замечания, бесплатно корректируем и повторно предоставляем вам документы.</p>
+          <p>Желателен планировочный план с расстановкой сантехники, мебели, кухонного оборудования и техники. Если дизайн-проекта пока нет, можно начать с плана квартиры и согласовать техническое задание. До фиксации трасс нужно определить расположение основных приборов и оборудования.</p>
         </div></div>
       </div>
       <div class="accordion-item reveal">
-        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Что если у меня нет дизайн-проекта?</span>
+        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Вы учитываете технические условия управляющей компании?</span>
           <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="accordion-content"><div class="accordion-body">
-          <p>Достаточно плана БТИ и схематичной расстановки сантехники, розеток и светильников. Наш инженер поможет составить техзадание вместе с вами — по переписке, созвону или даже по фото зарисовки от руки.</p>
+          <p>Да, если технические условия и требования эксплуатирующей организации предоставлены или доступны для проверки. Мы сопоставляем их с планом квартиры и проектируем решения в пределах заданных ограничений. Само решение о согласовании принимает управляющая организация.</p>
         </div></div>
       </div>
       <div class="accordion-item reveal">
-        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Сколько стоит инженерный проект квартиры в ЖК «[[*ЖК]]»?</span>
+        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Что прислать для расчёта стоимости?</span>
           <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="accordion-content"><div class="accordion-body">
-          <p>Один раздел (например, только электрика) — <strong>от 14 000 ₽</strong>. Комплексный проект из 2–3 разделов для квартиры 40–80 м² — обычно <strong>35 000–60 000 ₽</strong>. Точную цену считает калькулятор на этой странице, а после просмотра плана мы фиксируем её в договоре — она не изменится.</p>
+          <p>План квартиры с площадью, планировочное решение или дизайн-проект и перечень нужных разделов. Для новостройки полезны паспорт квартиры, план этажа и технические условия дома. По этим материалам можно определить объём проектирования и предварительную стоимость.</p>
         </div></div>
       </div>
       <div class="accordion-item reveal">
-        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Какие сроки изготовления проекта?</span>
+        <div class="accordion-header" onclick="toggleAccordion(this)"><span>ГИП выполняет монтаж инженерных сетей?</span>
           <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="accordion-content"><div class="accordion-body">
-          <p>Один раздел — <strong>от 3 дней</strong>. Комплексный проект из 3–5 разделов — <strong>7–15 дней</strong>. Срочный проект за 48 часов возможен — уточните у инженера, это незначительно влияет на стоимость.</p>
+          <p>Наша услуга — инженерное проектирование: расчёты, схемы, рабочие чертежи и спецификации. Монтажные работы в состав услуги ГИП не входят. Проект передаётся заказчику для выполнения работ выбранной им монтажной организацией.</p>
         </div></div>
       </div>
       <div class="accordion-item reveal">
-        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Как быстро согласуется проект с УК?</span>
+        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Сколько стоит проект и сколько времени занимает работа?</span>
           <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="accordion-content"><div class="accordion-body">
-          <p>Обычно <strong>3–7 рабочих дней</strong>. Проекты выполнены по СП, ГОСТ и ПУЭ и требованиям типовых УК Москвы. Если появятся замечания, мы бесплатно корректируем проект и повторно подаём документы.</p>
-        </div></div>
-      </div>
-      <div class="accordion-item reveal">
-        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Что входит в стоимость — есть ли доплаты?</span>
-          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="accordion-content"><div class="accordion-body">
-          <p>В стоимость включено всё: полный комплект чертежей, спецификация оборудования и материалов, помощь с техзаданием, консультация по согласованию с УК, нормоконтроль и одна итерация правок. <strong>Доплат за эти позиции не будет</strong> — цена фиксируется в договоре.</p>
-        </div></div>
-      </div>
-      <div class="accordion-item reveal">
-        <div class="accordion-header" onclick="toggleAccordion(this)"><span>Сколько стоит переделка после ремонта без проекта?</span>
-          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="accordion-content"><div class="accordion-body">
-          <p>В среднем переделка канализации или электрики после завершённого ремонта обходится в <strong>60 000–200 000 ₽</strong> плюс стоимость новой отделки повреждённых участков. Проект стоит от 14 000 ₽ — это в 5–10 раз дешевле переделки.</p>
+          <p>Стоимость зависит от площади, состава разделов, сложности планировки и объёма исходных данных. Предварительную оценку можно получить в калькуляторе на этой странице. Срок фиксируем после проверки плана квартиры и согласования состава проекта.</p>
         </div></div>
       </div>
     </div>
